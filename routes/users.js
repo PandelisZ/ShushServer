@@ -13,6 +13,24 @@ router.post('/register', function(req, res) {
   });
 });
 
+router.get('/', function(req, res) {
+  models.User.findOne({
+    where: {
+      id: req.body.publicKey
+    }
+  }).then(function(user) {
+    if(user) {
+      res.send(user);
+    } else {
+      res.status(404)
+      res.send({
+        status: 'notFound'
+      })
+    }
+
+  });
+});
+
 router.put('/', function(req, res) {
   models.User.findOne({
     where: {
