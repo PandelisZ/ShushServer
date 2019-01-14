@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    payload: DataTypes.BLOB,
+    payload: DataTypes.TEXT,
     recievedAt: DataTypes.DATE,
+    sender: DataTypes.TEXT,
     recipient: DataTypes.TEXT
   });
 

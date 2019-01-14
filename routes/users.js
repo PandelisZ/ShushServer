@@ -2,7 +2,7 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
-router.post('/send', function(req, res) {
+router.post('/register', function(req, res) {
   models.Message.create({
     payload: req.body.payload,
     recieveAt: new Date(),
@@ -15,23 +15,15 @@ router.post('/send', function(req, res) {
   });
 });
 
-router.delete('/:Message_id/destroy', function(req, res) {
-  models.Message.destroy({
+router.put('/', function(req, res) {
+  models.Message.findOne({
     where: {
-      id: req.params.Message_id
+      id: req.body.publicKey
     }
-  }).then(function() {
-    res.send({
-      status: 'ok'
-    });
-  });
-});
-
-router.get('/', function(req, res) {
-  models.Message.findAll({
-    where: {
-      recipient: req.body.publicKey
-    }
+  }).then(function(user) {
+      user.update({
+          name: req.params.name
+      })
   }).then(function(message) {
     res.send(messages);
   });
