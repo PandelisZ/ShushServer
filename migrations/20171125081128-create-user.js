@@ -3,22 +3,12 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        type: DataTypes.TEXT,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: false
       },
-      username: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+      name: DataTypes.TEXT,
+      image: DataTypes.BLOB
     });
   },
   down: (queryInterface, Sequelize) => {
