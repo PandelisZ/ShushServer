@@ -5,7 +5,7 @@ var router  = express.Router();
 router.post('/register', function(req, res) {
   models.User.create({
     name: req.body.name,
-    publicKey: req.body.publicKey,
+    id: req.body.publicKey,
   }).then(function() {
     res.send({
       status: 'ok'
