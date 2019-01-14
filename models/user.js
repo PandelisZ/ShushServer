@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Message = sequelize.define('User', {
+  var User = sequelize.define('User', {
     id: {
       type: DataTypes.TEXT,
       primaryKey: true,
@@ -10,5 +10,5 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.BLOB
   });
 
-  return Message;
+  return User;
 };

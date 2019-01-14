@@ -3,9 +3,8 @@ var express = require('express');
 var router  = express.Router();
 
 router.post('/register', function(req, res) {
-  models.Message.create({
+  models.User.create({
     payload: req.body.payload,
-    recieveAt: new Date(),
     recipient: req.body.recipient,
     sender: req.body.sender
   }).then(function() {
@@ -16,7 +15,7 @@ router.post('/register', function(req, res) {
 });
 
 router.put('/', function(req, res) {
-  models.Message.findOne({
+  models.User.findOne({
     where: {
       id: req.body.publicKey
     }
