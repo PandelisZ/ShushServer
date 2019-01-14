@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     payload: DataTypes.TEXT,
-    recievedAt: DataTypes.DATE,
     sender: DataTypes.TEXT,
     recipient: DataTypes.TEXT
   });
