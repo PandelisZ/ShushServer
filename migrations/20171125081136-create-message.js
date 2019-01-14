@@ -8,7 +8,6 @@ module.exports = {
         autoIncrement: true
       },
       payload: DataTypes.TEXT,
-      recievedAt: DataTypes.DATE,
       sender: DataTypes.TEXT,
       recipient: DataTypes.TEXT
     });

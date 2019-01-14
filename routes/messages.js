@@ -5,7 +5,6 @@ var router  = express.Router();
 router.post('/send', function(req, res) {
   models.Message.create({
     payload: req.body.payload,
-    recieveAt: new Date(),
     recipient: req.body.recipient,
     sender: req.body.sender
   }).then(function() {
@@ -32,7 +31,7 @@ router.get('/', function(req, res) {
     where: {
       recipient: req.body.publicKey
     }
-  }).then(function(message) {
+  }).then(function(messages) {
     res.send(messages);
   });
 });
