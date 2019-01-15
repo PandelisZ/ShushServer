@@ -26,7 +26,7 @@ router.delete('/:Message_id/destroy', function(req, res) {
   });
 });
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
   models.Message.findAll({
     where: {
       recipient: req.body.publicKey
