@@ -29,7 +29,10 @@ router.post('/send', function(req, res) {
       var message = {
         notification: {
           title: 'New Message',
-          body: 'New Message'
+          body: req.body.payload
+        },
+        data: {
+          sender: req.body.sender,
         },
         token: user.dataValues.firebaseId
       };
