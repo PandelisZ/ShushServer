@@ -13,7 +13,7 @@ router.post('/register', function(req, res) {
   });
 });
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
   models.User.findOne({
     where: {
       id: req.body.publicKey
