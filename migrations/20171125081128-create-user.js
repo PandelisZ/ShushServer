@@ -8,7 +8,8 @@ module.exports = {
         autoIncrement: false
       },
       name: DataTypes.TEXT,
-      image: DataTypes.BLOB
+      image: DataTypes.BLOB,
+      firebaseId: DataTypes.STRING
     });
   },
   down: (queryInterface, Sequelize) => {

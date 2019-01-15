@@ -4,10 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.TEXT,
       primaryKey: true,
-      autoIncrement: false
+      autoIncrement: false,
     },
     name: DataTypes.TEXT,
-    image: DataTypes.BLOB
+    image: DataTypes.BLOB,
+    firebaseId: DataTypes.STRING
   });
 
   return User;

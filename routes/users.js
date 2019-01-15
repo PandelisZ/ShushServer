@@ -6,6 +6,7 @@ router.post('/register', function(req, res) {
   models.User.create({
     name: req.body.name,
     id: req.body.publicKey,
+    firebaseId: req.body.firebaseId
   }).then(function() {
     res.send({
       status: 'ok'
