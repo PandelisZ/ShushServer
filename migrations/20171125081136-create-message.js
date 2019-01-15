@@ -3,16 +3,16 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Messages', {
       id: {
-        type: DataTypes.BIGINT,
+        type: Sequelize.BIGINT,
         primaryKey: true,
         autoIncrement: true
       },
-      payload: DataTypes.TEXT,
-      sender: DataTypes.TEXT,
-      recipient: DataTypes.TEXT
+      payload: Sequelize.TEXT,
+      sender: Sequelize.TEXT,
+      recipient: Sequelize.TEXT
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Tasks');
+    return queryInterface.dropTable('Messages');
   }
 };

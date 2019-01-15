@@ -3,13 +3,13 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
       id: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
         primaryKey: true,
         autoIncrement: false
       },
-      name: DataTypes.TEXT,
-      image: DataTypes.BLOB,
-      firebaseId: DataTypes.STRING
+      name: Sequelize.TEXT,
+      image: Sequelize.BLOB,
+      firebaseId: Sequelize.STRING
     });
   },
   down: (queryInterface, Sequelize) => {
