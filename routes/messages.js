@@ -17,23 +17,21 @@ router.post('/send', function(req, res) {
     recipient: req.body.recipient,
     sender: req.body.sender
   }).then(function() {
-    models.User.findOne({
+    return models.User.findOne({
       where: {
         id: req.body.recipient
       }
     })
   }).then(function(user) {
     // See documentation on defining a message payload.
-
+    console.log(user)
     if(user) {
       var message = {
-        data: {
-          notification: {
-            title: 'New Message',
-            body: 'New Message'
-          }
+        notification: {
+          title: 'New Message',
+          body: 'New Message'
         },
-        token: registrationToken
+        token: user.dataValues.firebaseId
       };
 
       // Send a message to the device corresponding to the provided
@@ -45,6 +43,7 @@ router.post('/send', function(req, res) {
           });
         })
         .catch((error) => {
+          console.log(error)
           res.send({
             status: 'ok'
           });
